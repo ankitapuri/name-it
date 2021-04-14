@@ -1,0 +1,6 @@
+body{
+    background-image: linear-gradient(85deg, #7093bf, #61a3ce, #4eb3d7, #3bc2dc, #37d1da, #30d8d5, #35dece, #44e4c4, #3ce4ba, #37e4b0, #37e4a4, #3be397);
+    overflow-x: hidden; /* avoids scrolling to right or left */
+    color: #e7e9f0;
+    font-family: 'Lato', sans-serif;
+}
