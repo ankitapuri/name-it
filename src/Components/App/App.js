@@ -5,13 +5,19 @@ import SearchBox from './../SearchBox/SearchBox';
 class App extends React.Component {
     state = {
         headertext: 'Name it!', // state is a JS object used to save the data  which tend to change in future
+        headerExpanded: true,
     };
     /*prop is used to transfer data from parent to child*/
 
+    handleInputchange = (inputText) => {
+        this.setState({headerExpanded:!(inputText)})
+    };
     render() {
         return (
             <div>
-                <Header headtitle={this.state.headertext} />{' '}
+                <Header 
+                headerExpanded={this.state.headerExpanded}
+                headtitle={this.state.headertext} />{' '}
                 {/*prop is used to transfer data from parent to child*/}
                 {/* <button
         onClick = {() => {
@@ -20,7 +26,7 @@ class App extends React.Component {
           });
         }}
         >lets click it </button>  */}
-        <SearchBox/>
+        <SearchBox onInputchange={this.handleInputchange}/>
             </div>
         );
     }
