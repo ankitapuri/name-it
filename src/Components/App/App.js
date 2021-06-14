@@ -2,15 +2,23 @@ import React from 'react';
 import './App.css';
 import Header from './../Header/Header';
 import SearchBox from './../SearchBox/SearchBox';
+import ResultsContainer from '../ResultsContainer/ResultsContainer';
+
+const name = require('@rstacruz/startup-name-generator');
+
 class App extends React.Component {
     state = {
         headertext: 'Name it!', // state is a JS object used to save the data  which tend to change in future
         headerExpanded: true,
+        suggestedNames: [],
     };
     /*prop is used to transfer data from parent to child*/
 
     handleInputchange = (inputText) => {
-        this.setState({headerExpanded:!(inputText)})
+         name(inputText);
+        this.setState({headerExpanded:!(inputText),
+            suggestedNames: name(inputText),
+        })
     };
     render() {
         return (
@@ -27,6 +35,7 @@ class App extends React.Component {
         }}
         >lets click it </button>  */}
         <SearchBox onInputchange={this.handleInputchange}/>
+        <ResultsContainer/>
             </div>
         );
     }
